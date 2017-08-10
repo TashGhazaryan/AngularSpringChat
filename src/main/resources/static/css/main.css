@@ -1,0 +1,23 @@
+.receiver {
+    background-color: transparent;
+    border: none;
+    color: darkblue;
+    text-align: left;
+}
+
+.sender {
+    background-color: transparent;
+    text-align: right;
+    color: inherit;
+    border: 1px solid;
+    width: auto;
+}
+
+#messageContainer {
+    overflow: scroll;
+    height: 500px;
+    width: 300px;
+    border: 1px solid;
+    border-radius: 10%;
+    background-color: azure
+}

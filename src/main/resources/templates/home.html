@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+    <body>
+        <h1 id="current" th:text="${userName}"></h1>
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Logout form -->
+                <form th:action="@{/logout}" method="get">
+                    <button class="btn btn-md btn-default btn-block" name="registration" type="Submit">
+                        Logout
+                    </button>
+                </form>
+
+                <!-- List of all users -->
+                <div class="list-group" th:each="user : ${users}" >
+                    <a class="list-group-item list-group-item-info users" th:text="${user.username}" th:id="${user.id}"></a>
+                </div>
+            </div>
+
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                <div class="form-horizontal" id="messageArea" hidden >
+                    <div class="list-group" id="messageContainer" >
+                        <!-- List of messages here !-->
+                    </div>
+                    <textarea class="form-control" rows="3" id="msg"></textarea>
+                    <button type="submit" class="btn btn-default" id="sendBtn">Send</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" th:src="@{/js/script.js}"></script>
+        <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
+    </body>
+</html>

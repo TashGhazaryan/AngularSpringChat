@@ -1,0 +1,54 @@
+group 'chat'
+version '1.0-SNAPSHOT'
+
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-spring-boot'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: '1.5.4.RELEASE'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.10.Final'
+    //compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.10.Final'
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile "org.springframework.boot:spring-boot-starter-actuator"
+    compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '1.5.4.RELEASE'
+    compile group: 'net.sourceforge.nekohtml', name: 'nekohtml', version: '1.9.22'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.2.9.Final'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.9.0.pr4'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+    compile 'mysql:mysql-connector-java'
+    compile "org.mapstruct:mapstruct-jdk8:1.1.0.Final"
+    compile "org.mapstruct:mapstruct-processor:1.1.0.Final"
+    compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.6.0'
+
+    testCompile("junit:junit")
+}
